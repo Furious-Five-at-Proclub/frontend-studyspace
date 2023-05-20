@@ -34,6 +34,7 @@ dependencies:
     sdk: flutter
   freezed_annotation: ^2.2.0
   flutter_riverpod: ^2.3.6
+  flutter_svg: ^2.0.6
   shared_preferences: ^2.1.1
   styled_widget: ^0.4.1
 
@@ -72,11 +73,17 @@ flutter:
       fonts:
         - asset: fonts/GeneralSans-Regular.otf
         - asset: fonts/GeneralSans-Medium.otf
-          weight: 600
+          weight: 500
         - asset: fonts/GeneralSans-Semibold.otf
-          weight: 700
+          weight: 600
         - asset: fonts/GeneralSans-Bold.otf
-          weight: 800
+          weight: 700
+    - family: StudyIcons
+      fonts:
+        - asset: fonts/Study.ttf
+
+  assets:
+    - assets/
   # fonts:
   #   - family: Schyler
   #     fonts:
