@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:study_space/presentation/pages/authentication/viewmodels/login_viewmodel.dart';
+import 'package:study_space/presentation/widgets/study_icons.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../core/themes/theme.dart';
 import '../../widgets/rounded_button.dart';
+import 'viewmodels/login_viewmodel.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -14,14 +15,13 @@ class LoginPage extends ConsumerStatefulWidget {
 }
 
 class _LoginPageState extends ConsumerState<LoginPage> {
-  
   @override
   void initState() {
     super.initState();
 
     ref.read(loginViewModel);
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +60,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 hintText: 'Masukkan password',
                 suffixIcon: IconButton(
                   onPressed: ref.read(loginViewModel).toggleObscure,
-                  icon: Icon(ref.watch(loginViewModel).isObscured ? Icons.visibility_off : Icons.visibility),
+                  icon: Icon(ref.watch(loginViewModel).isObscured
+                      ? StudyIcons.materialSymbolsVisibilityOffRounded
+                      : StudyIcons.materialSymbolsVisibilityRounded),
                 ),
               ),
             ),
@@ -95,6 +97,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 const SizedBox(width: 4),
                 InkResponse(
                   onTap: () {
+                    Navigator.popUntil(context, (route) => route.isFirst);
                     Navigator.pushNamed(context, '/register');
                   },
                   child: const Text(

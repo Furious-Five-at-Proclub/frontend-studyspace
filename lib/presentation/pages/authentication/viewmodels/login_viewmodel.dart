@@ -19,9 +19,12 @@ class LoginViewModel extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
 
     isLoading = false;
     notifyListeners();
+
+    Navigator.popUntil(context, (route) => route.isFirst);
+    Navigator.pushReplacementNamed(context, '/home');
   }
 }

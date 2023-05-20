@@ -6,7 +6,7 @@ import 'core/themes/theme.dart';
 import 'presentation/pages/authentication/login_page.dart';
 import 'presentation/pages/authentication/register_page.dart';
 import 'presentation/pages/authentication/register_verification_page.dart';
-import 'presentation/pages/home_page.dart';
+import 'presentation/pages/main_page.dart';
 import 'presentation/pages/onboarding_page.dart';
 import 'providers.dart';
 import 'wrappers.dart';
@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
         fontFamily: 'General Sans',
         inputDecorationTheme: const InputDecorationTheme(
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const Scaffold(body: Wrapper()),
-        '/home': (context) => const HomePage(),
+        '/home': (context) => const MainPage(),
         '/onboarding': (context) => const OnboardingPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),

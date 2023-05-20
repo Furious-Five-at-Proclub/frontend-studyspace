@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
-import '../../core/themes/theme.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -11,9 +9,9 @@ class SplashScreen extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      color: primaryColor,
-      child: const Center(
-        child: Text('Splash Screen', style: TextStyle(fontSize: 32)),
+      color: Colors.white,
+      child: Center(
+        child: SvgPicture.asset('assets/studyspace.svg', width: 140),
       ),
     );
   }

@@ -97,7 +97,10 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                 const Text('Sudah mempunyai akun?'),
                 const SizedBox(width: 4),
                 InkResponse(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.popUntil(context, (route) => route.isFirst);
+                    Navigator.pushNamed(context, '/login');
+                  },
                   child: const Text(
                     'Masuk',
                     style: TextStyle(
