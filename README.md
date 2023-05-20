@@ -3,7 +3,7 @@
 ## 📕 Background
 Study Space is a startup that operates in the field of property. It provides places for rent to students who want to study, engage in activities, and rest for a short period of time. Its goal is to provide a working space for students, especially university students.
 
-## Project Structure
+## 🏗️ Project Structure
 
 This flutter sourcecode consists of 3 main folder:
 1. `core`,
