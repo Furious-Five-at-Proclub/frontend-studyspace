@@ -31,7 +31,7 @@ This folder is the face of the application. It holds the UI layer of the applica
 - [ ] Home Page
   - [x] Bottom Navigation Bar
   - [x] Filter Chip
-  - [ ] Room Card (Note: )
+  - [ ] Room Card
 - [ ] "Ruangan Saya" Page
   - [ ] My Room Card
 - [ ] Profile Page
