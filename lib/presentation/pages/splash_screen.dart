@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       color: primaryColor,
       child: const Center(
-        child: Text('Siap³', style: TextStyle(fontSize: 32)),
+        child: Text('Splash Screen', style: TextStyle(fontSize: 32)),
       ),
     );
   }

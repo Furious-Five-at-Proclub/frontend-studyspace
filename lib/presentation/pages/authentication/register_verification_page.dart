@@ -23,10 +23,18 @@ class _RegisterVerificationPageState
         elevation: 0,
         leading: const BackButton(color: Colors.black),
         actions: [
-          TextButton(
-            onPressed: () {},
-            child: const Text('Lewati'),
-          ),
+          InkResponse(
+            onTap: () {},
+            child: const Center(
+              child: Text(
+                'Lewati',
+                style: TextStyle(
+                  color: primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ).padding(right: 16),
         ],
       ),
       body: SingleChildScrollView(

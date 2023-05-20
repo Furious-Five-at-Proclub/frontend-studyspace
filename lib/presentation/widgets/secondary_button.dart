@@ -41,7 +41,7 @@ class _SecondaryButtonState extends State<SecondaryButton> {
         style: Theme.of(context)
             .textTheme
             .button
-            ?.copyWith(color: mediumGreyColor),
+            ?.copyWith(color: grey300Color),
       )
           .padding(
             vertical: widget.verticalPadding,

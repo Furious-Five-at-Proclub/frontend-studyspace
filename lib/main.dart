@@ -35,6 +35,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
         fontFamily: 'General Sans',
+        inputDecorationTheme: const InputDecorationTheme(
+          hintStyle: TextStyle(
+            fontFamily: 'General Sans',
+            fontWeight: FontWeight.w500,
+            color: grey300Color,
+          ),
+          border: UnderlineInputBorder(
+            borderSide: BorderSide(color: grey300Color),
+          ),
+        ),
         useMaterial3: false,
       ),
       initialRoute: '/',

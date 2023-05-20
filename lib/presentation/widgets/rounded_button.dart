@@ -41,7 +41,7 @@ class _RoundedButtonState extends State<RoundedButton> {
         style: Theme.of(context)
             .textTheme
             .button
-            ?.copyWith(color: mediumGreyColor),
+            ?.copyWith(color: grey300Color),
       )
           .padding(
             vertical: widget.verticalPadding,
@@ -71,6 +71,6 @@ class _RoundedButtonState extends State<RoundedButton> {
           onTap: widget.onPressed,
         )
         .scale(all: _isPressed ? 0.95 : 1.0, animate: true)
-        .animate(Duration(milliseconds: 175), Curves.fastLinearToSlowEaseIn);
+        .animate(const Duration(milliseconds: 175), Curves.fastLinearToSlowEaseIn);
   }
 }
