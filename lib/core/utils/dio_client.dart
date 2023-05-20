@@ -64,9 +64,9 @@ class DioClient {
     } on SocketException catch (e) {
       throw SocketException(e.toString());
     } on FormatException catch (_) {
-      throw FormatException('Unable to process the data');
+      throw const FormatException('Unable to process the data');
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 

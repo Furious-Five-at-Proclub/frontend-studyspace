@@ -38,10 +38,7 @@ class _SecondaryButtonState extends State<SecondaryButton> {
       return Text(
         widget.label,
         textAlign: TextAlign.center,
-        style: Theme.of(context)
-            .textTheme
-            .button
-            ?.copyWith(color: grey300Color),
+        style: const TextStyle(color: grey300Color),
       )
           .padding(
             vertical: widget.verticalPadding,
