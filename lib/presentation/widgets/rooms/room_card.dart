@@ -45,7 +45,7 @@ class RoomCard extends StatelessWidget {
               height: size.width - 40,
               width: size.width - 40,
               decoration: BoxDecoration(
-                color: grey300Color,
+                color: grey100Color,
                 borderRadius: BorderRadius.circular(defaultBorderRadius),
                 image: DecorationImage(
                   image: NetworkImage(imageUrl),

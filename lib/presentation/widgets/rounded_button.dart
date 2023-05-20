@@ -38,7 +38,10 @@ class _RoundedButtonState extends State<RoundedButton> {
       return Text(
         widget.label,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: grey300Color),
+        style: const TextStyle(
+          color: grey300Color,
+          fontWeight: FontWeight.w600,
+        ),
       )
           .padding(
             vertical: widget.verticalPadding,
@@ -52,7 +55,7 @@ class _RoundedButtonState extends State<RoundedButton> {
     return Text(
       widget.label,
       textAlign: TextAlign.center,
-      style: TextStyle(color: widget.textColor, fontWeight: FontWeight.w600)
+      style: TextStyle(color: widget.textColor, fontWeight: FontWeight.w600),
     )
         .padding(
           vertical: widget.verticalPadding,
@@ -68,6 +71,7 @@ class _RoundedButtonState extends State<RoundedButton> {
           onTap: widget.onPressed,
         )
         .scale(all: _isPressed ? 0.95 : 1.0, animate: true)
-        .animate(const Duration(milliseconds: 175), Curves.fastLinearToSlowEaseIn);
+        .animate(
+            const Duration(milliseconds: 175), Curves.fastLinearToSlowEaseIn);
   }
 }

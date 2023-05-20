@@ -32,9 +32,9 @@ This folder is the face of the application. It holds the UI layer of the applica
   - [x] Bottom Navigation Bar
   - [x] Filter Chip
   - [ ] Room Card
+- [x] Profile Page
 - [ ] "Ruangan Saya" Page
   - [ ] My Room Card
-- [ ] Profile Page
 - [ ] Room Detail Page
 - [ ] Select Schedule Page
 - [ ] Booking Confirmation Page
@@ -43,3 +43,6 @@ This folder is the face of the application. It holds the UI layer of the applica
 - [ ] Food Order Page
 - [ ] Food Order Confirmation Page
 - [ ] Food Order Detail Page
+
+### Connecting the API Phase
+- [ ] To be added soon
