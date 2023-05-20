@@ -26,7 +26,7 @@ class SecondaryButton extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SecondaryButtonState createState() => _SecondaryButtonState();
+  State<SecondaryButton> createState() => _SecondaryButtonState();
 }
 
 class _SecondaryButtonState extends State<SecondaryButton> {
@@ -52,7 +52,7 @@ class _SecondaryButtonState extends State<SecondaryButton> {
     return Text(
       widget.label,
       textAlign: TextAlign.center,
-      style: TextStyle(color: widget.textColor, fontWeight: FontWeight.w600)
+      style: TextStyle(color: widget.textColor, fontWeight: FontWeight.w600),
     )
         .padding(
           vertical: widget.verticalPadding,
@@ -61,8 +61,9 @@ class _SecondaryButtonState extends State<SecondaryButton> {
         .ripple()
         .clipRRect(all: defaultBorderRadius)
         .decorated(
-            border: Border.all(color: widget.backgroundColor, width: 2),
-            borderRadius: BorderRadius.circular(defaultBorderRadius))
+          border: Border.all(color: widget.backgroundColor, width: 2),
+          borderRadius: BorderRadius.circular(defaultBorderRadius),
+        )
         .gestures(
           onTapChange: (tapStatus) => setState(() => _isPressed = tapStatus),
           onTap: widget.onPressed,

@@ -26,7 +26,7 @@ class RoundedButton extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _RoundedButtonState createState() => _RoundedButtonState();
+  State<RoundedButton> createState() => _RoundedButtonState();
 }
 
 class _RoundedButtonState extends State<RoundedButton> {
