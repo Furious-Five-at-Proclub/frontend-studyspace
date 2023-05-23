@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final loginViewModel =
-    ChangeNotifierProvider((ref) => LoginViewModel());
+    ChangeNotifierProvider.autoDispose((ref) => LoginViewModel());
 
 class LoginViewModel extends ChangeNotifier {
   

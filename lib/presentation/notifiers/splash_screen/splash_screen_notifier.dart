@@ -5,7 +5,7 @@ part 'splash_screen_notifier.freezed.dart';
 part 'splash_screen_state.dart';
 
 final splashScreenNotifier =
-    StateNotifierProvider<SplashScreenNotifier, SplashScreenState>(
+    StateNotifierProvider.autoDispose<SplashScreenNotifier, SplashScreenState>(
         (ref) => SplashScreenNotifier());
 
 class SplashScreenNotifier extends StateNotifier<SplashScreenState> {

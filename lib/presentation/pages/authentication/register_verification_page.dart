@@ -64,7 +64,10 @@ class _RegisterVerificationPageState
             const SizedBox(height: 24),
             const SizedBox(height: 64),
             RoundedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.popUntil(context, (route) => route.isFirst);
+                Navigator.pushReplacementNamed(context, '/home');
+              },
               label: 'Verifikasi',
             ).constrained(width: MediaQuery.of(context).size.width),
             const SizedBox(height: 16),

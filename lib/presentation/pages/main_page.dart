@@ -1,14 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:study_space/core/themes/theme.dart';
-import 'package:study_space/presentation/pages/profile/profile_page.dart';
-import 'package:study_space/presentation/widgets/rounded_button.dart';
 import 'package:styled_widget/styled_widget.dart';
 
+import '../../core/themes/theme.dart';
 import '../notifiers/bottom_nav/bottom_nav_notifier.dart';
 import '../widgets/study_icons.dart';
 import 'home/home_page.dart';
+import 'myroom/myroom_page.dart';
+import 'profile/profile_page.dart';
 
 class MainPage extends ConsumerStatefulWidget {
   const MainPage({super.key});
@@ -32,7 +31,7 @@ class _MainPageState extends ConsumerState<MainPage> {
         physics: const NeverScrollableScrollPhysics(),
         children: const [
           HomePage(),
-          Center(child: Text('Page 2')),
+          MyRoomPage(),
           ProfilePage(),
         ],
       ),

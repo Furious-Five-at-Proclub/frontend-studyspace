@@ -13,9 +13,11 @@ class RoomCard extends StatelessWidget {
   final int price;
   final int? discountedPrice;
   final int hourlyRate;
-  final bool isWishlisted;
   final double stars;
   final int reviews;
+  /* wishlist related */
+  final bool isWishlisted;
+  final Function()? wishlistOnPressed;
 
   const RoomCard({
     super.key,
@@ -26,9 +28,11 @@ class RoomCard extends StatelessWidget {
     required this.price,
     this.discountedPrice,
     required this.hourlyRate,
-    this.isWishlisted = false,
     required this.stars,
     required this.reviews,
+    /* wishlist related */
+    this.isWishlisted = false,
+    this.wishlistOnPressed,
   });
 
   @override
@@ -65,9 +69,13 @@ class RoomCard extends StatelessWidget {
                   ),
                 ).padding(all: 8).backgroundColor(orange500Color),
               ).padding(top: 16),
+            /* wishlist related */
             Align(
               alignment: Alignment.topRight,
-              child: WishlistButton(isWishlisted: isWishlisted),
+              child: WishlistButton(
+                isWishlisted: isWishlisted,
+                onPressed: wishlistOnPressed,
+              ),
             ).padding(top: 16, right: 16),
           ],
         ),

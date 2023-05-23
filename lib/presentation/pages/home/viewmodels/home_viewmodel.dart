@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final homeViewModel =
-    ChangeNotifierProvider((ref) => HomeViewModel());
+    ChangeNotifierProvider.autoDispose((ref) => HomeViewModel());
 
 enum HomeChip { unselected, promo, termurah, terdekat }
 

@@ -47,6 +47,16 @@ class MyApp extends StatelessWidget {
           ),
         ),
         useMaterial3: false,
+        snackBarTheme: const SnackBarThemeData(
+          behavior: SnackBarBehavior.floating,
+          showCloseIcon: true,
+          closeIconColor: Colors.white,
+          contentTextStyle: TextStyle(
+            fontFamily: 'General Sans',
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+          ),
+        ),
       ),
       initialRoute: '/',
       routes: {

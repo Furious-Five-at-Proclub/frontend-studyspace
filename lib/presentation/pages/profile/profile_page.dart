@@ -80,7 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
             const SizedBox(height: 16),
-            const Divider(color: grey100Color),
+            const Divider(color: grey100Color, thickness: 1),
             const SizedBox(height: 16),
             _buildCardMenu(
               onTap: () {},

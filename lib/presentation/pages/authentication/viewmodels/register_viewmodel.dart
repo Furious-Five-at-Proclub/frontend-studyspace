@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final registerViewModel = ChangeNotifierProvider((ref) => RegisterViewModel());
+final registerViewModel =
+    ChangeNotifierProvider.autoDispose((ref) => RegisterViewModel());
 
 class RegisterViewModel extends ChangeNotifier {
   bool isLoading = false;
@@ -16,7 +17,7 @@ class RegisterViewModel extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
 
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
 
     isLoading = false;
     notifyListeners();
