@@ -33,8 +33,7 @@ This folder is the face of the application. It holds the UI layer of the applica
   - [x] Filter Chip
   - [ ] Room Card
 - [x] Profile Page
-- [ ] "Ruangan Saya" Page
-  - [ ] My Room Card
+- [x] "Ruangan Saya" Page
 - [ ] Room Detail Page
 - [ ] Select Schedule Page
 - [ ] Booking Confirmation Page
