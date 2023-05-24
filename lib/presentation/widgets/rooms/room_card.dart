@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../core/themes/theme.dart';
-import '../wishlist_button.dart';
+import '../study_icon_button.dart';
 import '../study_icons.dart';
 
-class RoomCard extends StatelessWidget {
+class RoomCard extends StatefulWidget {
   final String imageUrl;
   final String title;
   final String location;
@@ -18,6 +18,8 @@ class RoomCard extends StatelessWidget {
   /* wishlist related */
   final bool isWishlisted;
   final Function()? wishlistOnPressed;
+  /* */
+  final Function()? onPressed;
 
   const RoomCard({
     super.key,
@@ -33,7 +35,15 @@ class RoomCard extends StatelessWidget {
     /* wishlist related */
     this.isWishlisted = false,
     this.wishlistOnPressed,
+    this.onPressed,
   });
+
+  @override
+  State<RoomCard> createState() => _RoomCardState();
+}
+
+class _RoomCardState extends State<RoomCard> {
+  bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -52,16 +62,16 @@ class RoomCard extends StatelessWidget {
                 color: grey100Color,
                 borderRadius: BorderRadius.circular(defaultBorderRadius),
                 image: DecorationImage(
-                  image: NetworkImage(imageUrl),
+                  image: NetworkImage(widget.imageUrl),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
-            if (discountedPrice != null)
+            if (widget.discountedPrice != null)
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Hemat ${((1 - (discountedPrice! / price)) * 100).round()}%',
+                  'Hemat ${((1 - (widget.discountedPrice! / widget.price)) * 100).round()}%',
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -72,9 +82,11 @@ class RoomCard extends StatelessWidget {
             /* wishlist related */
             Align(
               alignment: Alignment.topRight,
-              child: WishlistButton(
-                isWishlisted: isWishlisted,
-                onPressed: wishlistOnPressed,
+              child: StudyIconButton(
+                isActive: widget.isWishlisted,
+                onPressed: widget.wishlistOnPressed,
+                icon: StudyIcons.materialSymbolsFavoriteOutlineRounded,
+                activeIcon: StudyIcons.materialSymbolsFavoriteRounded,
               ),
             ).padding(top: 16, right: 16),
           ],
@@ -84,7 +96,7 @@ class RoomCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              title,
+              widget.title,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
@@ -98,7 +110,8 @@ class RoomCard extends StatelessWidget {
                   color: ocean500Color,
                 ),
                 const SizedBox(width: 4),
-                Text('$stars ($reviews)', style: const TextStyle(fontSize: 16)),
+                Text('${widget.stars} (${widget.reviews})',
+                    style: const TextStyle(fontSize: 16)),
               ],
             ),
           ],
@@ -107,7 +120,7 @@ class RoomCard extends StatelessWidget {
         Row(
           children: [
             Text(
-              location,
+              widget.location,
               style: const TextStyle(fontSize: 16, color: grey700Color),
             ),
             const SizedBox(width: 8),
@@ -117,19 +130,19 @@ class RoomCard extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Text(
-              '$distance km',
+              '${widget.distance} km',
               style: const TextStyle(fontSize: 16, color: grey500Color),
             ),
           ],
         ).padding(horizontal: 4),
         const SizedBox(height: 8),
-        if (discountedPrice != null)
+        if (widget.discountedPrice != null)
           Column(
             children: [
               Row(
                 children: [
                   Text(
-                    'Rp$price',
+                    'Rp${widget.price}',
                     style: const TextStyle(
                       fontSize: 14,
                       color: grey300Color,
@@ -139,7 +152,7 @@ class RoomCard extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    '/${hourlyRate}jam',
+                    '/${widget.hourlyRate}jam',
                     style: const TextStyle(fontSize: 14, color: grey500Color),
                   ),
                 ],
@@ -148,7 +161,7 @@ class RoomCard extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'Rp$discountedPrice',
+                    'Rp${widget.discountedPrice}',
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -156,7 +169,7 @@ class RoomCard extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    '/${hourlyRate}jam',
+                    '/${widget.hourlyRate}jam',
                     style: const TextStyle(fontSize: 14, color: grey500Color),
                   ),
                 ],
@@ -167,18 +180,25 @@ class RoomCard extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Rp$price',
+                'Rp${widget.price}',
                 style:
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               const SizedBox(width: 4),
               Text(
-                '/${hourlyRate}jam',
+                '/${widget.hourlyRate}jam',
                 style: const TextStyle(fontSize: 14, color: grey500Color),
               ),
             ],
           ).padding(horizontal: 4),
       ],
-    );
+    )
+        .gestures(
+          onTapChange: (tapStatus) => setState(() => _isPressed = tapStatus),
+          onTap: widget.onPressed,
+        )
+        .scale(all: _isPressed ? 0.95 : 1.0, animate: true)
+        .animate(
+            const Duration(milliseconds: 175), Curves.fastLinearToSlowEaseIn);
   }
 }

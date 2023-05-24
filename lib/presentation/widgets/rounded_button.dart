@@ -39,7 +39,7 @@ class _RoundedButtonState extends State<RoundedButton> {
         widget.label,
         textAlign: TextAlign.center,
         style: const TextStyle(
-          color: grey300Color,
+          color: grey500Color,
           fontWeight: FontWeight.w600,
         ),
       )
@@ -48,7 +48,7 @@ class _RoundedButtonState extends State<RoundedButton> {
             horizontal: widget.horizontalPadding,
           )
           .borderRadius(all: defaultBorderRadius)
-          .backgroundColor(lightGreyColor)
+          .backgroundColor(grey200Color)
           .clipRRect(all: defaultBorderRadius);
     }
 

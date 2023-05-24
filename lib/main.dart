@@ -8,6 +8,9 @@ import 'presentation/pages/authentication/register_page.dart';
 import 'presentation/pages/authentication/register_verification_page.dart';
 import 'presentation/pages/main_page.dart';
 import 'presentation/pages/onboarding_page.dart';
+import 'presentation/pages/room/room_detail_page.dart';
+import 'presentation/pages/room/room_select_time_page.dart';
+import 'presentation/room_booking/room_booking_detail.dart';
 import 'providers.dart';
 import 'wrappers.dart';
 
@@ -66,6 +69,9 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
         '/register-verification': (context) => const RegisterVerificationPage(),
+        '/room-detail': (context) => const RoomDetailPage(),
+        '/room-detail/checkin': (context) => const RoomDetailCheckin(),
+        '/room-detail/book': (context) => const RoomBookingDetail(),
       },
     );
   }

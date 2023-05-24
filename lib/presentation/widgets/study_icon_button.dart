@@ -1,34 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import 'study_icons.dart';
-
-class WishlistButton extends StatefulWidget {
-  final bool isWishlisted;
+class StudyIconButton extends StatefulWidget {
+  final bool isActive;
   final Function()? onPressed;
+  final IconData icon;
+  final IconData? activeIcon;
+  final double padding;
 
-  const WishlistButton({
+  const StudyIconButton({
     super.key,
-    this.isWishlisted = false,
+    this.isActive = false,
     this.onPressed,
+    required this.icon,
+    this.activeIcon,
+    this.padding = 8.0,
   });
 
   @override
-  State<WishlistButton> createState() => _WishlistButtonState();
+  State<StudyIconButton> createState() => _StudyIconButtonState();
 }
 
-class _WishlistButtonState extends State<WishlistButton> {
+class _StudyIconButtonState extends State<StudyIconButton> {
   bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
-    if (widget.isWishlisted) {
+    if (widget.isActive) {
       return Material(
         color: Colors.black.withOpacity(0.2),
-        child: const Icon(
-          StudyIcons.materialSymbolsFavoriteRounded,
+        child: Icon(
+          widget.activeIcon ?? widget.icon,
           color: Colors.redAccent,
-        ).padding(all: 8),
+        ).padding(all: widget.padding),
       )
           .ripple()
           .clipRRect(all: 120)
@@ -44,10 +48,10 @@ class _WishlistButtonState extends State<WishlistButton> {
 
     return Material(
       color: Colors.black.withOpacity(0.2),
-      child: const Icon(
-        StudyIcons.materialSymbolsFavoriteOutlineRounded,
+      child: Icon(
+        widget.icon,
         color: Colors.white,
-      ).padding(all: 8),
+      ).padding(all: widget.padding),
     )
         .ripple()
         .clipRRect(all: 120)

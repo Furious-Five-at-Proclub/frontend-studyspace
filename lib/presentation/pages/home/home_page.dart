@@ -45,6 +45,9 @@ class _HomePageState extends ConsumerState<HomePage> {
               final state = ref.watch(roomDetailNotifier(1));
 
               return RoomCard(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/room-detail');
+                },
                 imageUrl:
                     'https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1694&q=80',
                 title: 'Karuna Space',
