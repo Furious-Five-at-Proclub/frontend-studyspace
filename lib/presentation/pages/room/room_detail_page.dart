@@ -47,7 +47,7 @@ class _RoomDetailPageState extends ConsumerState<RoomDetailPage> {
             ),
             RoundedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/room-detail/book');
+                Navigator.pushNamed(context, '/book');
               },
               label: 'Booking Sekarang',
               enabled: ref.watch(roomDetailViewModel).checkIn != null &&

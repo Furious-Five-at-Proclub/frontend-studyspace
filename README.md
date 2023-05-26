@@ -34,10 +34,10 @@ This folder is the face of the application. It holds the UI layer of the applica
   - [ ] Room Card
 - [x] Profile Page
 - [x] "Ruangan Saya" Page
-- [ ] Room Detail Page
-- [ ] Select Schedule Page
-- [ ] Booking Confirmation Page
-- [ ] Payment Page
+- [x] Room Detail Page
+- [x] Select Schedule Page
+- [x] Booking Confirmation Page
+- [x] Payment Page
 - [ ] Booking Detail Page
 - [ ] Food Order Page
 - [ ] Food Order Confirmation Page

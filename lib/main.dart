@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'presentation/pages/payment/payment_method_page.dart';
+import 'presentation/pages/room_booking/room_booking_detail_page.dart';
 
 import 'core/themes/theme.dart';
 import 'presentation/pages/authentication/login_page.dart';
@@ -10,7 +12,7 @@ import 'presentation/pages/main_page.dart';
 import 'presentation/pages/onboarding_page.dart';
 import 'presentation/pages/room/room_detail_page.dart';
 import 'presentation/pages/room/room_select_time_page.dart';
-import 'presentation/room_booking/room_booking_detail.dart';
+import 'presentation/pages/room_booking/room_booking_summary_page.dart';
 import 'providers.dart';
 import 'wrappers.dart';
 
@@ -71,7 +73,9 @@ class MyApp extends StatelessWidget {
         '/register-verification': (context) => const RegisterVerificationPage(),
         '/room-detail': (context) => const RoomDetailPage(),
         '/room-detail/checkin': (context) => const RoomDetailCheckin(),
-        '/room-detail/book': (context) => const RoomBookingDetail(),
+        '/book': (context) => const RoomBookingSummaryPage(),
+        '/book/detail': (context) => const RoomBookingDetailPage(),
+        '/payment': (context) => const PaymentMethodPage(),
       },
     );
   }
