@@ -2,17 +2,20 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../core/themes/theme.dart';
+import '../../../infrastructures/models/food.dart';
+import '../../widgets/food/food_menu_item.dart';
+import '../../widgets/rooms/room_space_type.dart';
 import '../../widgets/rounded_button.dart';
 import '../../widgets/secondary_button.dart';
 import '../../widgets/study_icon_button.dart';
 import '../../widgets/study_icons.dart';
 import 'room_select_time_page.dart';
 import 'viewmodel/room_detail_viewmodel.dart';
-import 'widgets/room_space_type.dart';
 
 class RoomDetailPage extends ConsumerStatefulWidget {
   const RoomDetailPage({super.key});
@@ -169,7 +172,12 @@ class _RoomDetailPageState extends ConsumerState<RoomDetailPage> {
                 _buildGeneralInfo().padding(horizontal: 20),
                 const SizedBox(height: 16),
                 SecondaryButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showMaterialModalBottomSheet(
+                      context: context,
+                      builder: _buildModalBottomSheet,
+                    );
+                  },
                   label: 'Lihat menu makanan & minuman',
                   verticalPadding: 8.5,
                 ).constrained(width: size.width).padding(horizontal: 20),
@@ -292,6 +300,80 @@ class _RoomDetailPageState extends ConsumerState<RoomDetailPage> {
           _buildAppBar(),
         ],
       ),
+    );
+  }
+
+  Widget _buildModalBottomSheet(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Center(
+          child: Container(
+            height: 4,
+            width: 64,
+            decoration: BoxDecoration(
+              color: grey100Color,
+              borderRadius: BorderRadius.circular(120),
+            ),
+          ),
+        ).padding(vertical: 8),
+        SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          controller: ModalScrollController.of(context),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 8),
+              const Text(
+                'Menu',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Makanan',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 12),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(0),
+                itemCount: foodList.length,
+                itemBuilder: (context, index) {
+                  return FoodMenuItem(
+                    imageUrl: foodList[index].imageUrl,
+                    title: foodList[index].title,
+                    description: foodList[index].description,
+                    price: foodList[index].price,
+                  ).padding(bottom: 16);
+                },
+              ),
+              const Text(
+                'Minuman',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 12),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(0),
+                itemCount: beverageList.length,
+                itemBuilder: (context, index) {
+                  return FoodMenuItem(
+                    imageUrl: beverageList[index].imageUrl,
+                    title: beverageList[index].title,
+                    description: beverageList[index].description,
+                    price: beverageList[index].price,
+                  ).padding(bottom: 16);
+                },
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
+      ],
     );
   }
 

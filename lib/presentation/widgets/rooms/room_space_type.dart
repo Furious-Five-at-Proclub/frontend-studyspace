@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '../../../../core/themes/theme.dart';
+import '../../../core/themes/theme.dart';
 
 class RoomSpaceType extends StatefulWidget {
   final String label;

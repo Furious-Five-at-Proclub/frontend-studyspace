@@ -75,11 +75,27 @@ class _MyRoomPageState extends ConsumerState<MyRoomPage>
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
             child: Column(
               children: [
-                _buildMyRoomCard(),
+                _buildMyRoomCard(
+                  onPressed: () {},
+                  buttonLabel: 'Pesan makanan atau minuman',
+                  icon: StudyIcons.materialSymbolsFastfoodRounded,
+                ),
               ],
             ),
           ),
-          Container(),
+          SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+            child: Column(
+              children: [
+                _buildMyRoomCard(
+                  onPressed: () {},
+                  buttonLabel: 'Lihat QR Code',
+                  icon: Icons.qr_code_rounded,
+                ),
+              ],
+            ),
+          ),
           const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -101,7 +117,11 @@ class _MyRoomPageState extends ConsumerState<MyRoomPage>
     );
   }
 
-  Widget _buildMyRoomCard() {
+  Widget _buildMyRoomCard({
+    required String buttonLabel,
+    required IconData icon,
+    required Function()? onPressed,
+  }) {
     return Material(
       color: Colors.white,
       borderRadius: BorderRadius.circular(defaultBorderRadius),
@@ -172,9 +192,10 @@ class _MyRoomPageState extends ConsumerState<MyRoomPage>
           const SizedBox(height: 12),
           const Divider(thickness: 1),
           const SizedBox(height: 12),
-          const DensedButton(
-            label: 'Pesan makanan atau minuman',
-            icon: StudyIcons.materialSymbolsFastfoodRounded,
+          DensedButton(
+            onPressed: onPressed,
+            label: buttonLabel,
+            icon: icon,
           ).constrained(width: double.infinity),
         ],
       ).padding(all: 12),

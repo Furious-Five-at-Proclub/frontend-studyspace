@@ -28,17 +28,14 @@ This folder is the face of the application. It holds the UI layer of the applica
 - [x] Authentication
   - [x] Login Page
   - [x] Register Page
-- [ ] Home Page
-  - [x] Bottom Navigation Bar
-  - [x] Filter Chip
-  - [ ] Room Card
+- [x] Home Page
 - [x] Profile Page
 - [x] "Ruangan Saya" Page
 - [x] Room Detail Page
 - [x] Select Schedule Page
 - [x] Booking Confirmation Page
 - [x] Payment Page
-- [ ] Booking Detail Page
+- [ ] Booking Detail Page (nearly done)
 - [ ] Food Order Page
 - [ ] Food Order Confirmation Page
 - [ ] Food Order Detail Page
