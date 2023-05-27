@@ -80,7 +80,22 @@ class _MyRoomPageState extends ConsumerState<MyRoomPage>
             ),
           ),
           Container(),
-          Container(),
+          const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.info, color: grey500Color, size: 48),
+              SizedBox(height: 12),
+              Text(
+                'Kamu belum booking ruangan',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: grey500Color,
+                ),
+              ),
+              SizedBox(height: 120),
+            ],
+          ),
         ],
       ),
     );

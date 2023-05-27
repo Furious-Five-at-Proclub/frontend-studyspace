@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:study_space/presentation/notifiers/room/room_detail_notifier.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../core/themes/theme.dart';
+import '../../notifiers/room/room_detail_notifier.dart';
 import '../../widgets/rooms/room_card.dart';
 import '../../widgets/study_chip.dart';
 import '../../widgets/study_icons.dart';

@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../core/themes/theme.dart';
@@ -54,19 +56,23 @@ class _RoomCardState extends State<RoomCard> {
       children: [
         Stack(
           children: [
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 4),
+            CachedNetworkImage(
               height: size.width - 40,
               width: size.width - 40,
-              decoration: BoxDecoration(
-                color: grey100Color,
-                borderRadius: BorderRadius.circular(defaultBorderRadius),
-                image: DecorationImage(
-                  image: NetworkImage(widget.imageUrl),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+              imageUrl: widget.imageUrl,
+              fit: BoxFit.cover,
+              placeholder: (context, url) {
+                return Shimmer.fromColors(
+                  baseColor: grey100Color,
+                  highlightColor: Colors.white,
+                  child: Container(
+                    height: size.width - 40,
+                    width: size.width - 40,
+                    color: grey200Color,
+                  ),
+                );
+              },
+            ).clipRRect(all: defaultBorderRadius).padding(horizontal: 4),
             if (widget.discountedPrice != null)
               Align(
                 alignment: Alignment.topLeft,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:study_space/presentation/notifiers/bottom_nav/bottom_nav_notifier.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../core/themes/theme.dart';
@@ -8,14 +10,14 @@ import '../../widgets/rounded_button.dart';
 import '../../widgets/secondary_button.dart';
 import '../../widgets/study_icons.dart';
 
-class RoomBookingDetailPage extends StatefulWidget {
+class RoomBookingDetailPage extends ConsumerStatefulWidget {
   const RoomBookingDetailPage({super.key});
 
   @override
-  State<RoomBookingDetailPage> createState() => _RoomBookingDetailPageState();
+  ConsumerState<RoomBookingDetailPage> createState() => _RoomBookingDetailPageState();
 }
 
-class _RoomBookingDetailPageState extends State<RoomBookingDetailPage> {
+class _RoomBookingDetailPageState extends ConsumerState<RoomBookingDetailPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -359,6 +361,7 @@ class _RoomBookingDetailPageState extends State<RoomBookingDetailPage> {
             RoundedButton(
               onPressed: () {
                 Navigator.popUntil(context, (route) => route.isFirst);
+                ref.read(bottomNavNotifier).changeIndex(1);
               },
               label: 'Lihat Ruangan Saya',
             ).padding(horizontal: 20).constrained(width: size.width),

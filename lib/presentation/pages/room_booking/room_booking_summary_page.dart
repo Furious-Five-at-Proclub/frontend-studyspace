@@ -52,6 +52,7 @@ class _RoomBookingSummaryState extends ConsumerState<RoomBookingSummaryPage> {
             ),
             RoundedButton(
               onPressed: () {
+                Navigator.popUntil(context, (route) => route.isFirst);
                 Navigator.pushNamed(context, '/book/detail');
               },
               label: 'Bayar',
